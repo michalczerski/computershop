@@ -1,1 +1,1 @@
-# ComputerShop
+# ComputerShop - React MPA/SPA with NodeJS
