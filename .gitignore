@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+#mongo - build
+**/mongo/data/
+
 # testing
 /coverage
 
