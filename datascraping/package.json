@@ -1,0 +1,20 @@
+{
+  "name": "datascraping",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "download-images": "node imagedownloader",
+    "build-sql": "node sqlbuilder",
+    "build-json": "node jsonbuilder"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "axios": "^1.5.1",
+    "csv": "^6.3.5"
+  },
+  "dependencies": {
+    "sqlite3": "^5.1.6"
+  }
+}
