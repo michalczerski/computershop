@@ -18,9 +18,9 @@ export default function Basket() {
 
 
     return (
-        <div className="basket" suppressHydrationWarning={true}>
+        <a  href="/basket" className="basket" suppressHydrationWarning={true}>
             BASKET ({qty})
             <List items={items}/>
-        </div>
+        </a>
     )
 }

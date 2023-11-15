@@ -3,6 +3,9 @@ import Categories from "./layout/categories"
 import Content from "./layout/content"
 import Header from "./layout/header"
 
+
+import './layout/global.scss';
+
 export const revalidate = 1;
 
 export const metadata = {
