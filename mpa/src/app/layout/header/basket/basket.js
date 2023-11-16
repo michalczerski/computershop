@@ -1,7 +1,7 @@
 'use client'
 
 import './basket.scss'
-import { BasketContext } from "../context";
+import { BasketContext } from "../../context";
 import { useContext, useEffect, useState } from "react";
 
 import List from './list';

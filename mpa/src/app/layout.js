@@ -1,8 +1,7 @@
 import { Context } from "./layout/context";
-import Categories from "./layout/categories"
+import Categories from "./layout/header/categories"
 import Content from "./layout/content"
-import Header from "./layout/header"
-
+import Header from "./layout/header/header"
 
 import './layout/global.scss';
 

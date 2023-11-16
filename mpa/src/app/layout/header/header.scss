@@ -25,6 +25,14 @@
         
         @media (min-width: 1600px) { 
             width: 1600px;
-        }            
+        }
+        
+        #header-panel {
+            display: flex;  
+
+            a {
+                padding-left:10px;
+            }
+        }
     }
 }
