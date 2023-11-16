@@ -1,22 +1,22 @@
+"use client"
 
 import './page.scss';
-import { redirect } from 'next/navigation'
+import { useFormState } from 'react-dom'
+import { addUser } from './addUser';
 
-export default async function Page() {
-    const register = async (formData) => {
-        "use server"
+const initialState = {
+    message: null
+}
 
-        console.log(formData);
-
-        redirect("/login");
-    }
+export default function Page() {
+    const [state, formAction] = useFormState(addUser, initialState);
 
     return (
         <>
             <div id="register-page">
                 <div id="register-box">
                     <h2>Register</h2>
-                    <form action={register}>
+                    <form action={formAction}>
                         <input placeholder="Username" type="text" name="username" />
                         <input placeholder="Email" type="email" />
                         <input placeholder="City" type="text" />
@@ -24,6 +24,7 @@ export default async function Page() {
                         <input placeholder="Post code" type="text" />
                         <input placeholder="Password" type="password"  />
                         <input placeholder="Password" type="password"  />
+                        {state?.message}
                         <button>Register</button>
                     </form>
                 </div>
