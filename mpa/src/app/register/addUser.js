@@ -3,12 +3,21 @@
 import { redirect } from 'next/navigation'
 
 export async function addUser(prevState, formData) {
-    console.log(formData.entries());
-    if (formData.get("username") == "") {
-        return {
-            message: "username is empty"
-        };
-    }
+    const fields = ["username", "email", "firstName", "lastName", "city", 
+        "street", "postCode", "password"];
 
-    redirect("/login");
+    const isNullOrEmpty = (string) => {return (string == "" || string == null);}
+    let result = {valid: true};
+    fields.map(function(field) { 
+        if (isNullOrEmpty(formData.get(field))) {
+            result.valid = false;
+            result[field] = `It's required.`;
+        }
+    });
+    console.log(prevState);
+    if (!result.valid) {
+        return result;
+    } else {
+        redirect("/login");
+    }
 }

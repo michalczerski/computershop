@@ -17,7 +17,10 @@ export default async function Login() {
                         <input placeholder="Username" type="text"  />
                         <input placeholder="Password" type="password"  />
                         <button>Log in</button>
-                        <a  href="/register">Register</a>                        
+                        <div>
+                            or if you dont' have account <a  href="/register">Register</a>    
+                        </div>
+                                            
                     </form>
                 </div>
             </div>
