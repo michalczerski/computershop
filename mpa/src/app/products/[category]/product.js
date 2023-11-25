@@ -2,7 +2,6 @@ import Image from 'next/image'
 import AddToBasket  from './addtoBasekt';
 
 export default function Product({ attributes, product }) {
-
   let path = `http://localhost:3030/images/${product.url}`;
   return (
       <div className="product">

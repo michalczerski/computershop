@@ -2,7 +2,7 @@
 
 import './page.scss';
 import { useFormState } from 'react-dom'
-import { addUser } from './addUser';
+import { addUser } from './actions';
 
 export default function Page() {
     const initialState = {  }

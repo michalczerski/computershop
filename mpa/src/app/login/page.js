@@ -1,11 +1,28 @@
+"use client"
+
 import './page.scss';
-import { redirect } from 'next/navigation'
+import { useFormState, useFormStatus } from 'react-dom'
+import { useState, useEffect } from 'react';
+import { login } from './actions';
 
-export default async function Login() {
-    async function login() {
-        "use server"
+function Submit({onPending}) {
+    const {pending} = useFormStatus();
+    useEffect(() => { if (pending) onPending(); })
+    return (
+        <>
+            <button type="submit">Log in</button>        
+        </>
+    )
+}
 
-        redirect('/');
+export default function Login() {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [state, formAction] = useFormState(login, {valid: true});  
+
+    const clearForm = () => {
+        setUsername("");
+        setPassword("");
     }
 
     return (
@@ -13,14 +30,19 @@ export default async function Login() {
             <div id="login-page">
                 <div id="login-box">
                     <h2>Log in</h2>
-                    <form action={login}>
-                        <input placeholder="Username" type="text"  />
-                        <input placeholder="Password" type="password"  />
-                        <button>Log in</button>
-                        <div>
-                            or if you dont' have account <a  href="/register">Register</a>    
-                        </div>
-                                            
+                    <form action={formAction} >
+                        <input name="username" placeholder="Username" 
+                            value={username}  onChange={e => setUsername(e.target.value)}
+                            type="text" />
+                        <input name="password" placeholder="Password"
+                            value={password} onChange={e => setPassword(e.target.value)}
+                             type="password" />
+                        {state?.valid ? "" : "Username doesn't exist or password is incorrect"}
+                        <Submit onPending={clearForm} />
+                        <div>or if you dont' have account</div>
+                        <div id="register-button">
+                            <a href="/register">Register</a>
+                        </div>                    
                     </form>
                 </div>
             </div>

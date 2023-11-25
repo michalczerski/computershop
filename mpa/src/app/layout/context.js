@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, createContext, useMemo } from "react";
-
 export const BasketContext = createContext();
 
 export function Context({ children }) {
@@ -13,11 +12,10 @@ export function Context({ children }) {
         }
     });
     const [basket, setBasket] = useState({items: storage.items, qty: storage.qty});
-    
-
+  
     return (
         <BasketContext.Provider value={{ basket, setBasket }}>
             {children}
-        </BasketContext.Provider>
+        </BasketContext.Provider>            
     )
 }
