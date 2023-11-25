@@ -21,8 +21,10 @@ export default function Login() {
     const [state, formAction] = useFormState(login, {valid: true});  
 
     const clearForm = () => {
-        setUsername("");
-        setPassword("");
+        setTimeout(() => {
+            setUsername("");
+            setPassword("");
+        }, 100)
     }
 
     return (
