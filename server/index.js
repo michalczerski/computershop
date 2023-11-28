@@ -25,7 +25,6 @@ const buildFilter = (query) => {
 
   if (query.q) {
     filter.name = {"$regex": query.q, "$options": "i"};
-    console.log(filter);
   }
 
   return filter; 
@@ -73,7 +72,11 @@ app.post('/login-customer', async(req, res) => {
   } else {
     res.sendStatus(204);
   }
-})
+});
+
+app.post('/make-order', async(req, res) => {
+  console.log(req.body)
+});
 
 app.use(express.static('public'))
 

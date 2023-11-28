@@ -7,7 +7,7 @@ body {
     text-size-adjust: 100%;
 }
 
-button {
+button, .button {
     cursor: pointer;
     background-color: none;
     border:none;
@@ -17,7 +17,7 @@ button {
     background-color: rgb(16 185 129/var(--tw-bg-opacity));     
     border-radius: 0.375rem;
     padding: 10px;
-         
+    display: block;     
     transition-duration: .5s;
 
     &:hover {
