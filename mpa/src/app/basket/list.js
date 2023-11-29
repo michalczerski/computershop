@@ -3,7 +3,10 @@
 import './basket.scss';
 import { BasketContext } from "../layout/context-provider";
 import { useContext, useState } from "react";
+import { useFormState } from 'react-dom'
 import { useCookies } from 'next-client-cookies';
+import { makeOrder } from './actions';
+import { SubmitButton }  from './submit';
 import Image from 'next/image';
 
 export default function List() {
@@ -16,9 +19,7 @@ export default function List() {
         }, 0);
     } 
     const [total, setTotal] = useState(calculateTotal());
-
-    const makeOrder = async () => {
-    }
+    const [{}, formAction] = useFormState(makeOrder, basket.items);
 
     const setBasket = (basket) => {
         basketContext.setBasket(basket);
@@ -28,16 +29,16 @@ export default function List() {
     }
 
     const handleAdd = (item) => {
-        let basket = basketContext.basket;
         item.qty++;
+        let basket = basketContext.basket;
 
         setBasket({items: basket.items, qty: basket.qty + 1});       
     }
 
     const handleRemove = (item) => {
         item.qty--;
-        if (item.qty == 0) {
-            basket.items = basket.items.filter(p => p.product._id != item.product._id);
+        if (item.qty === 0) {
+            basket.items = basket.items.filter(p => p.product._id !== item.product._id);
         }
         
         setBasket({items: basket.items, qty: basket.qty - 1})
@@ -45,9 +46,13 @@ export default function List() {
 
     const handleRemoveAll = (item) => {
         const basket = basketContext.basket;
-        basket.items = basket.items.filter(p => p.product._id != item.product._id);
+        basket.items = basket.items.filter(p => p.product._id !== item.product._id);
 
         setBasket({items: basket.items, qty: basket.qty - item.qty})
+    }
+
+    const clear = (item) => {
+        setBasket({items: [], qty: 0})
     }
 
     return (
@@ -86,7 +91,11 @@ export default function List() {
                         </div>
                         <div>
                             {basketContext.user && 
-                                <button onClick={makeOrder}>Make order</button>}
+                                <form action={formAction}>
+                                    <input type="hidden" 
+                                        name="order" value={JSON.stringify(basket.items)} />
+                                    <SubmitButton onFinish={clear}  />
+                                </form>}
                             {!basketContext.user && 
                                 <form action="/login"><button>Login to make order</button></form>}
                         </div>

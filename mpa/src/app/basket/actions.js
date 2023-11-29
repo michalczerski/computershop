@@ -1,11 +1,14 @@
 'use server'
 
-export async function makeOrder() {
-    const order = {items: []};
-    basket.items.map(item => { order.items.push(item.product); });
+import { cookies } from 'next/headers'
+import { redirect } from 'next/navigation'
 
-    const emptyBasket = {items: [], qty: 0}
-    setBasket(emptyBasket);
+export async function makeOrder(prevState, formData) {
+    const userCookie = cookies().get('user')?.value;
+    const user = JSON.parse(userCookie);
+    const basketCookie = cookies().get('basket')?.value;
+    const basket = JSON.parse(basketCookie);
+    const order = {userId: user._id, items: basket.items};
 
     await fetch('http://localhost:3030/make-order', {
         method: 'POST',
@@ -14,4 +17,6 @@ export async function makeOrder() {
             'Content-Type': 'application/json'
         }                     
     });
+
+   redirect("/account");
 }
