@@ -1,4 +1,3 @@
-import './product.scss'
 import Pagination from './pagination'
 import Product from './product'
 import Filter from './filter/filter';
