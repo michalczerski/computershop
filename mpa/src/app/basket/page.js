@@ -1,6 +1,5 @@
 'use client'
 
-import './basket.scss';
 import List from './list';
 import Empty from './empty';
 import { BasketContext } from "../layout/context-provider";
@@ -15,8 +14,8 @@ export default function Basket() {
 
     return (
         <>
-            <div id="basket-page">
-                {items.length == 0 && <Empty />}
+            <div className="flex flex-row w-full">
+                {items.length === 0 && <Empty />}
                 {items.length > 0 && <List />}
             </div>
         </>

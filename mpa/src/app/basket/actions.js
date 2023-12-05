@@ -21,5 +21,5 @@ export async function makeOrder() {
         }                     
     });
 
-   redirect("/account");
+   redirect("/account/orders");
 }

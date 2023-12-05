@@ -1,6 +1,5 @@
 'use client'
 
-import './basket.scss';
 import { BasketContext } from "../layout/context-provider";
 import { useContext, useState } from "react";
 import { useFormState } from 'react-dom'
@@ -51,43 +50,43 @@ export default function List() {
         setBasket({items: basket.items, qty: basket.qty - item.qty})
     }
 
-    const clear = (s) => {
+    const clear = () => {
         setBasket({items: [], qty: 0})
     }
 
     return (
         <>
-            <div id="list-col">
-                <ul className="list">               
+            <div className="w-3/4 flex flex-col">
+                <div className="text-2xl font-medium">
+                    <span className="text-black">Basket </span>
+                    <span className="text-gray-500">({basket.qty})</span>
+                </div>
+                <ul className="border border-gray-200 rounded-md mt-5 mr-5 divide-y">
                     {basket.items.map(item => 
-                        <li key={item.product._id}>
-                            <Image src={"http://localhost:3030/images/" + item.product.url} 
-                                width={64} height={55} 
-                                alt={item.product.name} />
-                            <div className="price-name-container">
-                                <div className="name">{item.product.name}</div>
-                                <div className="price">
-                                        <div>{item.product.priceUS.toFixed(2)}$ </div>
-                                        <div className="panel">
-                                            <button onClick={() => handleAdd(item)} 
-                                                className="plus">+</button>
-                                            <div>{item.qty}</div>
-                                            <button onClick={() => handleRemove(item)} 
-                                                className="minus">-</button>
-
-                                            <div onClick={() => handleRemoveAll(item)}>trash</div>
-                                        </div>                                    
-                                </div>
+                        <li key={item.product._id} className="flex flex-row justify-between items-center p-3">
+                            <Image src={`http://localhost:3030/images/${item.product.url}`}
+                                   width={64} height={55}
+                                   alt={item.product.name} />
+                            <div className="flex-grow pl-3">{item.product.name}</div>
+                            <div className="mr-7">{item.product.priceUS.toFixed(2)}$ </div>
+                            <div className="px-2 py-1 cursor-pointer hover:bg-neutral-100 rounded-md"
+                                 onClick={() => handleAdd(item)}>+</div>
+                            <div className="px-1 w-5">{item.qty}</div>
+                            <div className="px-2 py-1 cursor-pointer hover:bg-neutral-100 rounded-md"
+                                 onClick={() => handleRemove(item)} >-</div>
+                            <div className="p-1 ml-5 cursor-pointer hover:bg-neutral-100 rounded-md">
+                                <Image src="/trash.svg"
+                                       width={20} height={20} alt="trash"
+                                       onClick={() => handleRemoveAll(item)} />
                             </div>
-
                         </li> )}
                 </ul>  
-            </div> 
-            <div id="summary-col">
-                    <div id="summary">
-                        <div className="price">
+            </div>
+            <div className="w-1/4">
+                    <div className="border rounded-md bg-neutral-100 p-5 flex flex-col">
+                        <div className="flex flex-row justify-between">
                             <div>Total: </div>
-                            <div>{total.toFixed(2)}$</div>
+                            <div className="font-medium">{total.toFixed(2)}$</div>
                         </div>
                         <div>
                             {basketContext.user && 
@@ -97,7 +96,9 @@ export default function List() {
                                     <SubmitButton onFinish={clear}  />
                                 </form>}
                             {!basketContext.user && 
-                                <form action="/login"><button>Login to make order</button></form>}
+                                <form action="/login">
+                                    <button className="btn-p-g w-full mt-5">Login to make order</button>
+                                </form>}
                         </div>
                     </div>
             </div>

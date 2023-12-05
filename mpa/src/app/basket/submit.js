@@ -15,7 +15,7 @@ export function SubmitButton({onFinish}) {
 
     return (
         <>
-            <button>Make order</button>
+            <button className="btn-p-g w-full mt-5">Make order</button>
         </>
     )
 }
