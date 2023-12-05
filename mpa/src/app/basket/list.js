@@ -51,7 +51,7 @@ export default function List() {
         setBasket({items: basket.items, qty: basket.qty - item.qty})
     }
 
-    const clear = (item) => {
+    const clear = (s) => {
         setBasket({items: [], qty: 0})
     }
 

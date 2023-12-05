@@ -12,56 +12,56 @@ const customersCollection = database.collection('customers');
 const ordersCollection = database.collection('orders');
 
 const hashPassword = (password) => {
-  const sha1 = crypto.createHash('sha1');
-  sha1.update(password);
-  return sha1.digest("hex");
+    const sha1 = crypto.createHash('sha1');
+    sha1.update(password);
+    return sha1.digest("hex");
 }
 
 const buildFilter = (query) => {
-  let filter = {category: query.c};
+    let filter = {category: query.c};
 
-  Object.keys(query.search ?? []).map((key) => {
+    Object.keys(query.search ?? []).map((key) => {
     filter[key] = {$in: query.search[key].split(',') };
-  });
+    });
 
-  if (query.q) {
+    if (query.q) {
     filter.name = {"$regex": query.q, "$options": "i"};
-  }
+    }
 
-  return filter;
+    return filter;
 };
 
 app.use(express.json());
 
 //TODO - AS ONE PROJECTION (COUNT + FETCH)
 app.get('/products', async(req, res) => {
-  const filter = buildFilter(req.query);
-  const offset = (req.query.p - 1) * pageSize;
-  const products = await productsCollection
+    const filter = buildFilter(req.query);
+    const offset = (req.query.p - 1) * pageSize;
+    const products = await productsCollection
       .find(filter)
       .limit(pageSize)
       .skip(offset)
       .toArray();
-  res.send(products);
+    res.send(products);
 });
 
 
 app.get('/count-products', async (req, res) => {
-  const filter = buildFilter(req.query);
-  const count = await productsCollection.count(filter);
-  res.send(`${count}`);
+    const filter = buildFilter(req.query);
+    const count = await productsCollection.count(filter);
+    res.send(`${count}`);
 });
 
 app.get('/attributes', async (req, res) => {
-  const attributes = require("./attributes.json");
-  res.send(attributes[req.query.c]);
+    const attributes = require("./attributes.json");
+    res.send(attributes[req.query.c]);
 });
 
 app.post('/add-customer', async (req, res) => {
-      const customer = req.body;
-      customer.password = hashPassword(customer.password);
-      await customersCollection.insertOne(req.body);
-      res.send("1");
+    const customer = req.body;
+    customer.password = hashPassword(customer.password);
+    await customersCollection.insertOne(req.body);
+    res.send("1");
 });
 
 app.post('/login-customer', async(req, res) => {
@@ -75,16 +75,27 @@ app.post('/login-customer', async(req, res) => {
     }
 });
 
+
+//session instead userid
 app.post('/make-order', async(req, res) => {
     const order = req.body;
-    console.log(order);
+    order.date = Date.now();
     await ordersCollection.insertOne(order);
     res.sendStatus(200);
+});
+app.get('/orders', async(req, res) => {
+    const userId = req.header("user-id");
+    const filter = {userId: userId};
+    const orders = await ordersCollection
+        .find(filter)
+        .sort({date: -1})
+        .toArray();
+    res.send(orders);
 });
 
 app.use(express.static('public'))
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+    console.log(`Example app listening on port ${port}`);
 })
 

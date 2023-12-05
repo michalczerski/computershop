@@ -1,10 +1,9 @@
 import { ContextProvider } from "./layout/context-provider";
 import { CookiesProvider } from 'next-client-cookies/server';
 import Categories from "./layout/header/categories"
-import Content from "./layout/content"
 import Header from "./layout/header/header"
 
-import './layout/global.scss';
+import './global.css';
 
 export const revalidate = 1;
 
@@ -16,12 +15,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className="font-light leading-none" >
         <CookiesProvider>
           <ContextProvider>
             <Header />
             <Categories />
-            <Content>{children}</Content>  
+            <div className="container mx-auto flex mt-5" >{children}</div>
           </ContextProvider>
         </CookiesProvider>
       </body>

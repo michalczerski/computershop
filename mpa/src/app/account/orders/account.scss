@@ -1,0 +1,21 @@
+#orders-container {
+    width:100%;
+
+    ul {
+        width: 100%;
+        list-style:none;
+        padding: 0;
+        margin: 10px 0 50px 0;
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0;
+
+            .qty {
+                margin-right:10px
+            }
+
+        }
+    }
+}

@@ -4,7 +4,7 @@ import AddToBasket  from './addtoBasekt';
 export default function Product({ attributes, product }) {
   let path = `http://localhost:3030/images/${product.url}`;
   return (
-      <div className="product">
+      <div className="w-64">
         <Image src={path} width={256} height={220} alt={product.name} />
         <h3>{product.name}</h3>
         <ul>

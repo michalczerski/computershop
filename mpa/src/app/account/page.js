@@ -1,5 +1,7 @@
-export default function Account() {
+export default async function Account() {
     return (
-        <div>account</div>
+        <>
+            Dane kurde nomrlanie
+        </>
     )
 }

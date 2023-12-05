@@ -3,12 +3,15 @@
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 
-export async function makeOrder(prevState, formData) {
+export async function makeOrder() {
     const userCookie = cookies().get('user')?.value;
     const user = JSON.parse(userCookie);
     const basketCookie = cookies().get('basket')?.value;
     const basket = JSON.parse(basketCookie);
-    const order = {userId: user._id, items: basket.items};
+    const order = {
+        userId: user._id,
+        items: basket.items
+    };
 
     await fetch('http://localhost:3030/make-order', {
         method: 'POST',

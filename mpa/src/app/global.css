@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn-p-s {
+ @apply px-5 py-1
+  hover:bg-sky-700
+  bg-sky-600 text-white rounded-md text-sm
+}
+
+.btn-s-s {
+ @apply px-5 py-1
+  hover:bg-sky-700 hover:text-white hover:border-sky-700
+  text-sky-500 border border-sky-500 rounded-md text-sm
+}
+
+.btn-p-g {
+ @apply px-5 py-1
+ hover:bg-green-700
+ bg-green-600 text-white rounded-md text-sm
+ text-center
+}
+
+
+

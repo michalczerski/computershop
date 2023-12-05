@@ -16,7 +16,7 @@ export async function login(prevState, formData) {
         },
         cache: 'no-store'            
     });
-    if (res.status == 200) { 
+    if (res.status === 200) {
         const user = await res.text();
         cookies().set("user", user);
         redirect("/");
