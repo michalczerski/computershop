@@ -44,13 +44,18 @@ export default async function Page({searchParams, params}) {
               </Filter>
             </div>
             <div className="w-3/4">
-                <div className="flex flex-wrap columns-3">
-                    {products.map(product =>
-                        <Product product={product} attributes={attributes} key={product._id} /> )}
-                </div>
-                <div>
-                    <Pagination count={quantity} />
-                </div>
+                {products.length > 0 &&
+                    <div>
+                        <div className="flex flex-wrap columns-3 pl-5">
+                            {products.map(product =>
+                                <Product product={product} attributes={attributes} key={product._id} /> )}
+                        </div>
+                        <div>
+                            <Pagination count={quantity} />
+                        </div>
+                    </div>
+                }
+                {products.length === 0 && <div className="text-center text-xl">Products not found</div>}
             </div>
         </>
       )

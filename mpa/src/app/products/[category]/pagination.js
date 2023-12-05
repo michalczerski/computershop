@@ -7,7 +7,7 @@ import { useSearchParams, usePathname } from 'next/navigation'
 export default function Pagination({ count }) {
     const pathname = usePathname()
     const searchParams = useSearchParams()
-    const pages = Math.ceil(count / 30);
+    const pages = Math.ceil(count / 15);
     let current = parseInt(searchParams.get("p") ?? 1);
     if (current < 1) current = 1;
     if (current > pages) current = pages;

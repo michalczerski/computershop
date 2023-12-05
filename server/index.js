@@ -4,7 +4,7 @@ const crypto = require('crypto');
 
 const app = express()
 const port = 3030;
-const pageSize = 30;
+const pageSize = 15;
 const client = new MongoClient("mongodb://root:root@localhost:27017/");
 const database = client.db('computershop');
 const productsCollection = database.collection('products');
