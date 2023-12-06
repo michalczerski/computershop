@@ -1,8 +1,8 @@
-import Pagination from './pagination'
-import Product from './product'
-import Filter from './filter/filter';
-import CheckList from './filter/checklist';
-import Search  from './filter/search';
+import Pagination from "@/app/products/[category]/pagination";
+import Product from "@/app/products/[category]/product";
+import Filter from "@/app/products/[category]/filter/filter";
+import CheckList from "@/app/products/[category]/filter/checklist";
+import Search from "@/app/products/[category]/filter/search";
 
 function queryParameters(searchParams) {
     const url = new URLSearchParams(searchParams);

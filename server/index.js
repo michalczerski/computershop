@@ -1,5 +1,5 @@
 const express = require('express')
-const { MongoClient } = require("mongodb");
+const { MongoClient, ObjectId } = require("mongodb");
 const crypto = require('crypto');
 
 const app = express()
@@ -43,6 +43,12 @@ app.get('/products', async(req, res) => {
       .skip(offset)
       .toArray();
     res.send(products);
+});
+
+app.get('/product/:id', async(req, res) => {
+    const id = req.params.id;
+    const product = await productsCollection.findOne({_id:  new ObjectId(id)});
+    res.send(product);
 });
 
 

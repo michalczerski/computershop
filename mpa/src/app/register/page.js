@@ -1,7 +1,7 @@
 "use client"
 
 import { useFormState } from 'react-dom'
-import { addUser } from './actions';
+import { addUser } from "@/app/register/actions";
 
 export default function Page() {
     const initialState = {  }

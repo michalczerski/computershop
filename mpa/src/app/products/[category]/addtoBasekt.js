@@ -3,29 +3,17 @@
 import { useContext } from "react";
 import { BasketContext } from "@/app/layout/context-provider";
 import { useCookies } from 'next-client-cookies';
+import {addToBasket} from "@/components/product";
 
 export default function AddToBasket({ product }) {
     const cookies = useCookies();
     const context = useContext(BasketContext);
-    
-    const handleAddToBasket = () => {
-        const basket = context.basket;
-        if (!basket.items.some(p => p.product._id === product._id)) {
-            basket.items.push({product: product, qty: 0});
-        }
-        basket.items.find(p => p.product._id === product._id).qty++;
-        basket.qty++;  
-
-        const refreshedBasket = {items: basket.items, qty: basket.qty};
-        context.setBasket(refreshedBasket);
-        cookies.set('basket', JSON.stringify(refreshedBasket));
-    }
 
     return (
         <div className="group-hover:block hover:bg-green-600 hover:fill-white
                     px-2 py-1 h-7 cursor-pointer
                     hidden fill-green-600 border border-green-600 rounded-md"
-             onClick={handleAddToBasket}>
+             onClick={() => addToBasket(context, cookies, product)}>
             <div className="w-5 h-5">
                 <svg xmlns="http://www.w3.org/2000/svg"
                      height="16" width="18" viewBox="0 0 576 512">
