@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import {useFormState} from "react-dom";
-import {useState} from "react";
 import {logout} from "@/app/layout/header/account/actions";
 import {useCookies} from "next-client-cookies";
 
@@ -56,7 +55,7 @@ export default function Account() {
                     <form action="/login">
                         <button className="btn-p-s w-full">Login</button>
                     </form>
-                    <div className="text-xs text-gray-500 py-2 text-center">or if you don't have account</div>
+                    <div className="text-gray-500 text-xs py-2 text-center">or if you don't have account</div>
                     <form action="/register">
                         <button className="btn-s-s w-full">Register</button>
                     </form>

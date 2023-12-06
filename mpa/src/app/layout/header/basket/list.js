@@ -14,10 +14,10 @@ export default function List({items, qty}) {
             </div>
             <ul className="pt-4">
                 {items.map(item =>
-                    <li key={item.product._id} className="">
+                    <li key={item.product._id}>
                         <div className="flex flex-row pb-7 px-4 w-full ">
                             <Image src={`http://localhost:3030/images/${item.product.url}`}
-                                   height={64} width={64} alt={item.product.name} />
+                                   height={55} width={64} alt={item.product.name} />
                             <div className="flex flex-col pl-2 justify-between w-full">
                                 <div className="text-xs">{item.product.name}</div>
                                 <div className="flex flex-row w-full justify-between">
