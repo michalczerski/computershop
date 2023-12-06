@@ -6,6 +6,7 @@ import { useFormState } from 'react-dom'
 import { useCookies } from 'next-client-cookies';
 import { makeOrder } from './actions';
 import { SubmitButton }  from './submit';
+import {productUrl} from "@/components/product";
 import Image from 'next/image';
 
 export default function List() {
@@ -67,7 +68,7 @@ export default function List() {
                             <Image src={`http://localhost:3030/images/${item.product.url}`}
                                    width={64} height={55}
                                    alt={item.product.name} />
-                            <div className="flex-grow pl-3">{item.product.name}</div>
+                            <a href={productUrl(item.product)} className="flex-grow pl-3">{item.product.name}</a>
                             <div className="mr-7">{item.product.priceUS.toFixed(2)}$ </div>
                             <div className="px-2 py-1 cursor-pointer hover:bg-neutral-100 rounded-md"
                                  onClick={() => handleAdd(item)}>+</div>

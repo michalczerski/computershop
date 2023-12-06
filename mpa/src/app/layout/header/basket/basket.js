@@ -1,7 +1,6 @@
 'use client'
 
 import { useContext, useEffect, useState } from "react";
-
 import Image from "next/image";
 import List from './list';
 import { BasketContext } from "../../context-provider";

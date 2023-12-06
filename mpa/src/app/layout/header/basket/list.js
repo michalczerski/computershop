@@ -1,4 +1,5 @@
 import Image from "next/image";
+import {productUrl} from "@/components/product";
 
 export default function List({items, qty}) {
 
@@ -19,7 +20,7 @@ export default function List({items, qty}) {
                             <Image src={`http://localhost:3030/images/${item.product.url}`}
                                    height={55} width={64} alt={item.product.name} />
                             <div className="flex flex-col pl-2 justify-between w-full">
-                                <div className="text-xs">{item.product.name}</div>
+                                <a href={productUrl(item.product)} className="text-xs">{item.product.name}</a>
                                 <div className="flex flex-row w-full justify-between">
                                     <div className="text-sm text-gray-500">
                                         {item.qty} {item.qty > 1 ? 'pieces' : 'piece'}
