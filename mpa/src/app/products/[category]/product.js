@@ -8,7 +8,7 @@ export default function Product({ attributes, product }) {
             border border-white rounded-md py-3 px-3
             flex flex-col justify-between">
           <Image src={path} width={256} height={220} alt={product.name} />
-          <div className="pb-2 font-semibold text-base text-neutral-700">{product.name}</div>
+          <div className="pb-2">{product.name}</div>
           <ul>
             {Object.keys(attributes).map(name =>
               <li key={name} className="text-sm">
