@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import {useFormState} from "react-dom";
-import {logout} from "@/app/layout/header/account/actions";
+import {logout} from "@/components/header/account/actions";
 import {useCookies} from "next-client-cookies";
 
 export default function Account() {

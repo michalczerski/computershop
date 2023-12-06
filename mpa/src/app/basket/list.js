@@ -1,17 +1,17 @@
 'use client'
 
-import { BasketContext } from "../layout/context-provider";
+import { Context } from "@/app/context";
 import { useContext, useState } from "react";
 import { useFormState } from 'react-dom'
 import { useCookies } from 'next-client-cookies';
 import { makeOrder } from './actions';
 import { SubmitButton }  from './submit';
-import {productUrl} from "@/components/product";
+import { productUrl } from "@/components/product";
 import Image from 'next/image';
 
 export default function List() {
     const cookies = useCookies();
-    const basketContext = useContext(BasketContext);
+    const basketContext = useContext(Context);
     const basket = basketContext.basket;
     const calculateTotal = () => {
         return basketContext.basket.items.reduce((accumulator, item) => {

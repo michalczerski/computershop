@@ -1,7 +1,5 @@
-import Basket from './basket/basket'
-import Login from './login'
-import Account from './account/account';
-import { cookies } from 'next/headers'
+import Basket from '@/components/header/basket/basket';
+import Account from '@/components/header/account/account';
 import Image from 'next/image'
 
 export default function Header() {

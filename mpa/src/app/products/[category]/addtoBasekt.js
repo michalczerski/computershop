@@ -1,13 +1,13 @@
 'use client'
 
-import { useContext } from "react";
-import { BasketContext } from "@/app/layout/context-provider";
-import { useCookies } from 'next-client-cookies';
+import {useContext} from "react";
+import {useCookies} from 'next-client-cookies';
+import {Context} from "@/app/context";
 import {addToBasket} from "@/components/product";
 
 export default function AddToBasket({ product }) {
     const cookies = useCookies();
-    const context = useContext(BasketContext);
+    const context = useContext(Context);
 
     return (
         <div className="group-hover:block hover:bg-green-600 hover:fill-white

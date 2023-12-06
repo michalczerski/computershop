@@ -1,7 +1,7 @@
 import { CookiesProvider } from 'next-client-cookies/server';
-import { ContextProvider } from "@/app/layout/context-provider";
-import Categories from "@/app/layout/header/categories";
-import Header from "@/app/layout/header/header";
+import { ContextProvider } from "@/app/context-provider";
+import Categories from "@/components/header/categories";
+import Header from "@/components/header/header";
 
 import './global.css';
 

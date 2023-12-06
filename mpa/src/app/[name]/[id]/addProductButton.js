@@ -3,11 +3,11 @@
 import {useCookies} from "next-client-cookies";
 import {useContext} from "react";
 import {addToBasket} from "@/components/product";
-import {BasketContext} from "@/app/layout/context-provider";
+import {Context} from "@/app/context";
 
 export default function AddProductButton({product}) {
     const cookies = useCookies();
-    const context = useContext(BasketContext);
+    const context = useContext(Context);
 
     return (
         <>

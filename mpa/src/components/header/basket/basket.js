@@ -3,10 +3,10 @@
 import { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import List from './list';
-import { BasketContext } from "../../context-provider";
+import { Context } from "@/app/context";
 
 export default function Basket() {
-    const basketContext = useContext(BasketContext);
+    const basketContext = useContext(Context);
     const [qty, setQty] = useState(basketContext.basket.qty);
     const [items, setItems] = useState(basketContext.basket.items);
 
