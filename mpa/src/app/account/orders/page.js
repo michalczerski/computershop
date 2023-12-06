@@ -1,8 +1,6 @@
 import {cookies} from "next/headers";
 import Image from "next/image";
 
-
-
 export default async function Page() {
     const user = JSON.parse(cookies().get('user').value);
     const res = await fetch('http://localhost:3030/orders', {
@@ -56,10 +54,9 @@ export default async function Page() {
                         <div className="flex justify-end">
                             <div className="w-36 flex flex-row justify-between border-t pt-3">
                                 <div className="">Total:</div>
-                                <div className="font-semibold text-right">{total(order.items)}$</div>
+                                <div className="font-semibold text-right">{total(order.items).toFixed(2)}$</div>
                             </div>
                         </div>
-
                     </div>
                 )}
             </>
