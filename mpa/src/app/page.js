@@ -1,10 +1,11 @@
-import Link from 'next/link'
+import Computers from "@/app/sets/computers";
 
-export default function Main() {
-  return (
-    <div>
-      Zestawy polecane: (tak fajnie ze horizontal i vertical)
-      <Link href="product/1410">Procesor</Link>
-    </div>
-  )
+export default async function Main() {
+    const computers = await fetch("http://localhost:3030/computer-sets").then(r => r.json());
+
+    return (
+        <div className="w-full pt-5">
+            <Computers computers={computers} />
+        </div>
+    )
 }

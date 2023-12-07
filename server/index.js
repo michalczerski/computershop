@@ -2,6 +2,9 @@ const express = require('express')
 const { MongoClient, ObjectId } = require("mongodb");
 const crypto = require('crypto');
 
+const computerSets = require("./computer-sets.json");
+const attributes = require("./attributes.json");
+
 const app = express()
 const port = 3030;
 const pageSize = 15;
@@ -58,8 +61,11 @@ app.get('/count-products', async (req, res) => {
     res.send(`${count}`);
 });
 
+app.get('/computer-sets', async(req, res) => {
+    res.send(computerSets);
+})
+
 app.get('/attributes', async (req, res) => {
-    const attributes = require("./attributes.json");
     res.send(attributes[req.query.c]);
 });
 

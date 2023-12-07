@@ -3,13 +3,11 @@ import Orders from './orders';
 
 export default async function Page() {
     const user = JSON.parse(cookies().get('user').value);
-    const res = await fetch('http://localhost:3030/orders', {
+    const orders = await fetch('http://localhost:3030/orders', {
         headers: {
             'user-id': user._id
         }
-    });
-    let orders = await res.json();
-
+    }).then(r => r.json());
 
     return (
         <>
