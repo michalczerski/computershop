@@ -37,6 +37,17 @@ input[type=text], input[type=password], input[type=email] {
  border border-slate-300 rounded-md shadow-sm
  focus:outline-none focus:ring-1 ring-sky-500
 }
+input:disabled {
+ @apply bg-neutral-200
+}
+
+.form-error {
+  @apply text-sm text-red-600 pt-0.5 pl-2
+}
+
+.form .row {
+ @apply mb-2
+}
 
 
 

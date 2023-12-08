@@ -87,6 +87,23 @@ app.post('/login-customer', async(req, res) => {
     }
 });
 
+app.get('/account/:id', async (req, res) => {
+    const id = req.params.id;
+    const account = await customersCollection.findOne({_id:  new ObjectId(id)});
+    res.send(account);
+});
+
+app.post('/account/update/:id', async (req, res) => {
+    const id = req.params.id;
+
+    const account = {
+        city: req.body?.city,
+        street: req.body?.street,
+        postCode: req.body?.postCode
+    };
+    customersCollection.updateOne({_id: new ObjectId(id)}, {$set: account});
+    res.sendStatus(200);
+})
 
 //session instead userid
 app.post('/make-order', async(req, res) => {
@@ -95,6 +112,7 @@ app.post('/make-order', async(req, res) => {
     await ordersCollection.insertOne(order);
     res.sendStatus(200);
 });
+
 app.get('/orders', async(req, res) => {
     const userId = req.header("user-id");
     const filter = {userId: userId};

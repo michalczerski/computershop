@@ -3,12 +3,10 @@
 import Image from "next/image";
 import {useFormState} from "react-dom";
 import {logout} from "@/components/header/account/actions";
-import {useCookies} from "next-client-cookies";
+import {useUser} from "@/components/hooks/user-client";
 
 export default function Account() {
-    const cookies = useCookies();
-    const cookieUser = cookies.get('user')
-    const user = cookieUser ? JSON.parse(cookieUser) : false;
+    const [isLogged, user] = useUser();
 
     const MenuLogged = ({user}) => {
         const [state, formAction] = useFormState(logout);
@@ -82,8 +80,8 @@ export default function Account() {
                         rounded-b-md rounded-tl shadow-md
                         right-[-1px] top-[51px] ">
                     <div className="bg-white top-[-1px] w-[78px] h-1 absolute right-[0px]"></div>
-                    {user && <MenuLogged user={user}/>}
-                    {!user && <MenuLogIn />}
+                    {isLogged && <MenuLogged user={user}/>}
+                    {!isLogged && <MenuLogIn />}
                 </div>
             </div>
         </>
