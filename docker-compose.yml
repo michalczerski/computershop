@@ -1,20 +1,6 @@
 version: '3.7'
 services:
-  #server:
-    # build: ./server
-    # #image: 'node:20'
-    # container_name: backend
-    # hostname: backend
-    # working_dir: /server
-    # command: npm run dev
-    # volumes:
-    #   - ./server:/server
-    # ports:
-    #   - "8080:8080"
-    # environment:
-    #   NODE_ENV: dev      
   mongo:
-    #build: ./mongo
     image: 'mongo'
     restart: 'always'
     environment:
@@ -24,5 +10,21 @@ services:
       - './mongo/data:/data/db'
     ports:
       - "27017:27017"
+  server:
+    build: ./server
+    working_dir: /server
+    command: npm run server
+    volumes:
+      - ./server:/server
+    ports:
+      - "3030:3030"
+  frontend:
+    build: ./frontend
+    working_dir: /frontend
+    command: npm run dev
+    volumes:
+      - ./frontend:/frontend
+    ports:
+      - "3000:3000"
 volumes:
   mongo_data:
