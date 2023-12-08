@@ -1,12 +1,13 @@
 'use client'
 
-import { useState } from "react";
-import { useCookies } from 'next-client-cookies';
-import { Context } from  '@/app/context';
+import {useState} from "react";
+import {useCookies} from 'next-client-cookies';
+import {Context} from  '@/app/context';
+import {useUser} from "@/components/hooks/user-client";
 
 export function ContextProvider({ children }) {
+    const [,user] = useUser();
     const cookies = useCookies();
-    const user = cookies.get('user');
     const emptyBasket = {items: [], qty: 0}
     const basketCookie = cookies.get('basket');
     const storage = basketCookie ? JSON.parse(basketCookie) : emptyBasket;
