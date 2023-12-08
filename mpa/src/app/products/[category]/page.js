@@ -46,7 +46,7 @@ export default async function Page({searchParams, params}) {
                             {products.map(product =>
                                 <Product product={product} attributes={attributes} key={product._id} /> )}
                         </div>
-                        <div>
+                        <div className="mr-3 mt-7 py-5 flex justify-end border-t border-t-neutral-200">
                             <Pagination count={quantity} />
                         </div>
                     </div>

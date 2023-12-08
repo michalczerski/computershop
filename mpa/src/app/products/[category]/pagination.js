@@ -19,12 +19,14 @@ export default function Pagination({ count }) {
     prev.set('p', current - 1);
 
     return (
-      <div>
+      <div className="flex flex-row">
         {(current > 1) && 
-            <Link  href={{ pathname: pathname, query: prev.toString()}}> Previous </Link> }
-        {current} / {pages} 
-        {(current < pages ) && 
-            <Link  href={{ pathname: pathname, query: next.toString()}}> Next </Link>}
+            <Link href={{ pathname: pathname, query: prev.toString()}}> Previous </Link> }
+            {current === 1 && <div className="text-neutral-200">Previous</div>}
+          <div className="mx-5">{current} / {pages}</div>
+          {current === pages && <div className="text-neutral-200">Next</div>}
+        {(current < pages ) &&
+            <Link href={{ pathname: pathname, query: next.toString()}}> Next </Link>}
       </div>
     )
   }
