@@ -11,7 +11,7 @@ services:
     ports:
       - "27017:27017"
   server:
-    build: ./server
+    build: server
     working_dir: /server
     command: npm run server
     volumes:
