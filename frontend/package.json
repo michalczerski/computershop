@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build-and-start": "next build && next start",
     "start": "next start",
     "lint": "next lint"
   },
@@ -13,7 +14,8 @@
     "next-client-cookies": "^1.1.0",
     "react": "^18",
     "react-cookie": "^6.1.1",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "sharp": "^0.33.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.16",

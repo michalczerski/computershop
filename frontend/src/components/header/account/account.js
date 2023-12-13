@@ -53,7 +53,7 @@ export default function Account() {
                     <form action="/login">
                         <button className="btn-p-s w-full">Login</button>
                     </form>
-                    <div className="text-gray-500 text-xs py-2 text-center">or if you don't have account</div>
+                    <div className="text-gray-500 text-xs py-2 text-center">or if you dont have account</div>
                     <form action="/register">
                         <button className="btn-s-s w-full">Register</button>
                     </form>

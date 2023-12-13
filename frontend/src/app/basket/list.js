@@ -65,7 +65,7 @@ export default function List() {
                 <ul className="border border-gray-200 rounded-md mt-5 mr-5 divide-y">
                     {basket.items.map(item => 
                         <li key={item.product._id} className="flex flex-row justify-between items-center p-3">
-                            <Image src={`http://localhost:3030/images/${item.product.url}`}
+                            <Image src={`/images/${item.product.url}`}
                                    width={64} height={55}
                                    alt={item.product.name} />
                             <a href={productUrl(item.product)} className="flex-grow pl-3">{item.product.name}</a>

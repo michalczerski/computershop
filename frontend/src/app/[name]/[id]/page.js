@@ -3,7 +3,7 @@ import {productImageUrl, productUrl} from "@/components/product";
 import AddProductButton from "@/app/[name]/[id]/addProductButton";
 
 export default async function Page({params}) {
-    const product = await fetch(`http://localhost:3030/product/${params.id}`).then(r => r.json());
+    const product = await fetch(`${process.env.server}/product/${params.id}`).then(r => r.json());
     let imageUrl = productImageUrl(product);
 
     return (

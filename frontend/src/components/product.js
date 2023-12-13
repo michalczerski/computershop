@@ -20,5 +20,5 @@ export function addToBasket(context, cookies, product) {
 }
 
 export function productImageUrl(product) {
-    return `http://localhost:3030/images/${product.url}`
+    return `/images/${product.url}`
 }

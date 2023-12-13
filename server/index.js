@@ -1,6 +1,9 @@
+const process = require('process');
 const express = require('express')
 const { MongoClient, ObjectId } = require("mongodb");
 const crypto = require('crypto');
+
+const mongoMachine = process.env.NODE_ENV == 'production' ? "mongo" : "localhost";
 
 const computerSets = require("./computer-sets.json");
 const attributes = require("./attributes.json");
@@ -8,7 +11,7 @@ const attributes = require("./attributes.json");
 const app = express()
 const port = 3030;
 const pageSize = 15;
-const client = new MongoClient("mongodb://root:root@localhost:27017/");
+const client = new MongoClient(`mongodb://root:root@${mongoMachine}:27017/`);
 const database = client.db('computershop');
 const productsCollection = database.collection('products');
 const customersCollection = database.collection('customers');
@@ -24,11 +27,11 @@ const buildFilter = (query) => {
     let filter = {category: query.c};
 
     Object.keys(query.search ?? []).map((key) => {
-    filter[key] = {$in: query.search[key].split(',') };
+        filter[key] = {$in: query.search[key].split(',') };
     });
 
     if (query.q) {
-    filter.name = {"$regex": query.q, "$options": "i"};
+        filter.name = {"$regex": query.q, "$options": "i"};
     }
 
     return filter;
@@ -41,10 +44,10 @@ app.get('/products', async(req, res) => {
     const filter = buildFilter(req.query);
     const offset = (req.query.p - 1) * pageSize;
     const products = await productsCollection
-      .find(filter)
-      .limit(pageSize)
-      .skip(offset)
-      .toArray();
+        .find(filter)
+        .limit(pageSize)
+        .skip(offset)
+        .toArray();
     res.send(products);
 });
 
@@ -81,9 +84,9 @@ app.post('/login-customer', async(req, res) => {
     const filter = {username: req.body?.username, password: password};
     const customer = await customersCollection.findOne(filter);
     if (customer) {
-      res.send(customer);
+        res.send(customer);
     } else {
-      res.sendStatus(204);
+        res.sendStatus(204);
     }
 });
 

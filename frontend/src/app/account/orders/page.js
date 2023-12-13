@@ -3,7 +3,7 @@ import Orders from './orders';
 
 export default async function Page() {
     const user = JSON.parse(cookies().get('user').value);
-    const orders = await fetch('http://localhost:3030/orders', {
+    const orders = await fetch(`${process.env.server}/orders`, {
         headers: {
             'user-id': user._id
         }
@@ -13,7 +13,7 @@ export default async function Page() {
         <>
             <div className="w-full">
                 {orders.length > 0 && <Orders orders={orders} /> }
-                {orders.length === 0 && <div>You don't have any orders.</div>}
+                {orders.length === 0 && <div>You dont have any orders.</div>}
             </div>
         </>
     )

@@ -2,8 +2,8 @@
 
 import {useUser} from "@/components/hooks/user-server";
 
-export async function updateAccount(prevState, formData) {
-    const [isLoged, user] = useUser();
+export async function UpdateAccount(prevState, formData) {
+    const [, user] = useUser();
 
     const data = {
         city: formData.get('city'),
@@ -11,7 +11,7 @@ export async function updateAccount(prevState, formData) {
         postCode: formData.get('postCode')
     }
 
-    await fetch(`http://localhost:3030/account/update/${user._id}`, {
+    await fetch(`${process.env.server}/account/update/${user._id}`, {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {

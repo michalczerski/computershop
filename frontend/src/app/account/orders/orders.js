@@ -31,7 +31,7 @@ export default async function Orders({orders}) {
                         {order.items.map(item =>
                             <li key={item.product._id} className="flex flex-row justify-between items-center
                                     pb-5 pt-5">
-                                <Image src={`http://localhost:3030/images/${item.product.url}`}
+                                <Image src={`${process.env.server}/images/${item.product.url}`}
                                        width={64} height={55}
                                        alt={item.product.name} />
                                 <a href={productUrl(item.product)} className="flex-grow pl-5">{item.product.name}</a>

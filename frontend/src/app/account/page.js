@@ -3,7 +3,7 @@ import {useUser} from "@/components/hooks/user-server";
 
 export default  async function Account() {
     const [{}, user] = useUser();
-    const account = await fetch(`http://localhost:3030/account/${user._id}`).then(r => r.json());
+    const account = await fetch(`${process.env.server}/account/${user._id}`).then(r => r.json());
 
     return (
         <>

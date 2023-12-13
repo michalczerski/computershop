@@ -1,12 +1,11 @@
 "use client"
 
 import {useFormState, useFormStatus} from "react-dom";
-import {updateAccount} from "@/app/account/action";
+import {UpdateAccount, updateAccount} from "@/app/account/action";
 
 export default function Form({account}) {
     const initialState = {  }
-    const [state, formAction] = useFormState(updateAccount, initialState);
-
+    const [state, formAction] = useFormState(UpdateAccount, initialState);
 
     const SubmitButton = () => {
         const {pending} = useFormStatus();

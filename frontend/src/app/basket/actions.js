@@ -13,7 +13,7 @@ export async function makeOrder() {
         items: basket.items
     };
 
-    await fetch('http://localhost:3030/make-order', {
+    await fetch(`${process.env.server}/make-order`, {
         method: 'POST',
         body: JSON.stringify(order),
         headers: {

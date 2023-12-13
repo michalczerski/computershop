@@ -12,15 +12,15 @@ function queryParameters(searchParams) {
 }
 
 async function getProducts(query) {
-    return await fetch(`http://localhost:3030/products?${query}`).then(r => r.json());
+    return await fetch(`${process.env.server}/products?${query}`).then(r => r.json());
 }
 
 async function countProducts(query) {
-   return await fetch('http://localhost:3030/count-products?' + query).then(r => r.text());
+   return await fetch(`${process.env.server}/count-products?` + query).then(r => r.text());
 }
 
 async function getAttributes(query) {
-    return await fetch('http://localhost:3030/attributes?' + query).then(r => r.json());
+    return await fetch(`${process.env.server}/attributes?` + query).then(r => r.json());
 }
 
 export default async function Page({searchParams, params}) {

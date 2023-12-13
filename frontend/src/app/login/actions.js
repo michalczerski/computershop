@@ -8,7 +8,7 @@ export async function login(prevState, formData) {
         username: formData.get("username"),
         password: formData.get("password")
     }
-    const res = await fetch('http://localhost:3030/login-customer', {
+    const res = await fetch(`${process.env.server}/login-customer`, {
         method: 'POST',
         body: JSON.stringify(credentials),
         headers: {

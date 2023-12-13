@@ -1,4 +1,5 @@
-FROM node:21
+FROM node:21-slim
+ENV NODE_ENV production
 WORKDIR /frontend
 COPY package.json .
 RUN ls

@@ -2,6 +2,7 @@ version: '3.7'
 services:
   mongo:
     image: 'mongo'
+    command: mongod --quiet
     restart: 'always'
     environment:
       - 'MONGO_INITDB_ROOT_USERNAME=root'
@@ -13,18 +14,22 @@ services:
   server:
     build: server
     working_dir: /server
-    command: npm run server
+    command: ['npm', 'run', 'server']
     volumes:
       - ./server:/server
     ports:
       - "3030:3030"
+    #depends_on:
+    #  - mongo
   frontend:
     build: ./frontend
     working_dir: /frontend
-    command: npm run dev
+    command: ['npm', 'run', 'build-and-start']
     volumes:
       - ./frontend:/frontend
     ports:
       - "3000:3000"
+    #depends_on:
+    #  - server
 volumes:
   mongo_data:

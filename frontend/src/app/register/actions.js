@@ -21,7 +21,7 @@ export async function addUser(prevState, formData) {
     if (!result.valid) {
         return result;
     } else {
-        await fetch('http://localhost:3030/add-customer', {
+        await fetch(`${process.env.server}/add-customer`, {
             method: 'POST',
             body: JSON.stringify(customer),
             headers: {

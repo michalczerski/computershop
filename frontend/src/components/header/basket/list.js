@@ -1,8 +1,7 @@
 import Image from "next/image";
-import {productUrl} from "@/components/product";
+import {productImageUrl, productUrl} from "@/components/product";
 
 export default function List({items, qty}) {
-
     const total = items.reduce((acc, item) => acc + item.product.priceUS * item.qty, 0);
 
     return (
@@ -17,7 +16,7 @@ export default function List({items, qty}) {
                 {items.map(item =>
                     <li key={item.product._id}>
                         <div className="flex flex-row pb-7 px-4 w-full ">
-                            <Image src={`http://localhost:3030/images/${item.product.url}`}
+                            <Image src={`/images/${item.product.url}`}
                                    height={55} width={64} alt={item.product.name} />
                             <div className="flex flex-col pl-2 justify-between w-full">
                                 <a href={productUrl(item.product)} className="text-xs">{item.product.name}</a>

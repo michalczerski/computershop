@@ -13,7 +13,7 @@ export default function Basket() {
     useEffect(() => { 
         setQty(basketContext.basket.qty);
         setItems(basketContext.basket.items);
-    });
+    }, [basketContext.basket.qty, basketContext.basket.items]);
 
     return (
         <div className="group w-20 mt-1

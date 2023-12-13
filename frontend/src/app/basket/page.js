@@ -9,7 +9,7 @@ export default function Basket() {
     const basketContext = useContext(Context);
     const [items, setItems] = useState(basketContext.basket.items);
 
-    useEffect(() => { setItems(basketContext.basket.items) });
+    useEffect(() => { setItems(basketContext.basket.items) }, [basketContext.basket.items]);
 
     return (
         <>

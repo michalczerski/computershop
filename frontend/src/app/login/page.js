@@ -44,7 +44,7 @@ export default function Login() {
                                 {state?.valid ? "" : "Username doesn't exist or password is incorrect"}
                             </div>
                             <Submit onPending={clearForm} />
-                            <div className="py-2 text-gray-500">or if you dont' have account</div>
+                            <div className="py-2 text-gray-500">or if you dont have account</div>
                             <a className="btn-s-g " href="/register">Register</a>
                         </form>
                     </div>

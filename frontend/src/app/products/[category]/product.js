@@ -3,14 +3,13 @@ import AddToBasket from "@/app/products/[category]/addtoBasekt";
 import {productUrl} from "@/components/product";
 
 export default function Product({ attributes, product }) {
-  let path = `http://localhost:3030/images/${product.url}`;
 
   return (
       <div className="group w-1/3 hover:border-gray-300
             border border-white rounded-md py-3 px-3
             flex flex-col justify-between">
           <a href={productUrl(product)} className="pb-2">
-              <Image src={path} width={256} height={220} alt={product.name} />
+              <Image src={`/images/${product.url}`} width={256} height={220} alt={product.name} />
               {product.name}
           </a>
           <ul>

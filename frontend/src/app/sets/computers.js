@@ -2,7 +2,9 @@ import {productImageUrl, productUrl} from "@/components/product";
 import Image from "next/image";
 import AddToBasketButton from "@/app/sets/addToBasketButton";
 
-export default  function Computers({computers}) {
+export default async function Computers() {
+    const computers = await fetch(`${process.env.server}/computer-sets`).then(r => r.json());
+
     return (
         <>
             {computers.map((computer, idx) =>

@@ -11,7 +11,7 @@ export function SubmitButton({onFinish}) {
             setClicked(false);
             onFinish();
         }
-    });
+    }, [pending, clicked, onFinish]);
 
     return (
         <>
