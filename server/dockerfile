@@ -1,6 +1,7 @@
 FROM node:21-slim
 ENV NODE_ENV production
 WORKDIR /server
-COPY package.json .
-RUN ls
+COPY . .
 RUN npm install
+
+

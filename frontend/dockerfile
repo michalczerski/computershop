@@ -1,6 +1,10 @@
 FROM node:21-slim
-ENV NODE_ENV production
+
 WORKDIR /frontend
-COPY package.json .
-RUN ls
-RUN npm install
+COPY . .
+RUN npm ci
+
+RUN npm run build
+
+ENV NEXT_TELEMETRY_DISABLED 1
+ENV NODE_ENV production

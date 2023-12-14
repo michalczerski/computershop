@@ -1,4 +1,7 @@
-[{"name": "ENDORFY Ventum 200 Air", "category": "computercases", "pricePL": 279, "priceUS": 66, 
+const db = connect( 'mongodb://localhost/computershop');
+
+db.products.insertMany(
+[{"name": "ENDORFY Ventum 200 Air", "category": "computercases", "pricePL": 279, "priceUS": 66,
             "url": "pr_2022_11_17_13_11_43_84_02.jpg", "type": "Middle Tower", "format": "ATX"}, 
 {"name": "KRUX Vako", "category": "computercases", "pricePL": 219, "priceUS": 52, 
             "url": "pr_2022_7_26_13_25_39_299_00.jpg", "type": "Middle Tower", "format": "ATX"}, 
@@ -6466,4 +6469,4 @@
             "url": "pr_2019_10_2_18_39_4_850_02.jpg",  "capacity": "128", "interface": "2,5'' SATA"}, 
 {"name": "Transcend 240GB 2,5'' SATA SSD 220S", "category": "storage", "pricePL": 129, "priceUS": 31, 
             "url": "pr_2017_7_27_11_22_26_621.jpg",  "capacity": "240", "interface": "2,5'' SATA"} 
-]
+]);
