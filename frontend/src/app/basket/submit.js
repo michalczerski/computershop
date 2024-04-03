@@ -11,11 +11,11 @@ export function SubmitButton({onFinish}) {
             setClicked(false);
             onFinish();
         }
-    }, [pending, clicked, onFinish]);
+    });
 
     return (
         <>
-            <button className="btn-p-g w-full mt-5">Make order</button>
+            <button className="btn-p-g w-full mt-5" disabled={pending}>Make order</button>
         </>
     )
 }

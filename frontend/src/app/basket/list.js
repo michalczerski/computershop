@@ -8,11 +8,13 @@ import { makeOrder } from './actions';
 import { SubmitButton }  from './submit';
 import { productUrl } from "@/components/product";
 import Image from 'next/image';
+import {useUser} from "@/components/hooks/user-client";
 
 export default function List() {
     const cookies = useCookies();
     const basketContext = useContext(Context);
     const basket = basketContext.basket;
+    const [isLogged, user] = useUser();
     const calculateTotal = () => {
         return basketContext.basket.items.reduce((accumulator, item) => {
             return accumulator + (item.product.priceUS * item.qty);
@@ -90,13 +92,13 @@ export default function List() {
                             <div className="font-medium">{total.toFixed(2)}$</div>
                         </div>
                         <div>
-                            {basketContext.user && 
+                            {isLogged &&
                                 <form action={formAction}>
                                     <input type="hidden" 
                                         name="order" value={JSON.stringify(basket.items)} />
                                     <SubmitButton onFinish={clear}  />
                                 </form>}
-                            {!basketContext.user && 
+                            {!isLogged &&
                                 <form action="/login">
                                     <button className="btn-p-g w-full mt-5">Login to make order</button>
                                 </form>}

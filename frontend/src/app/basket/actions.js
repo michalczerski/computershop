@@ -8,14 +8,14 @@ export async function makeOrder() {
     const user = JSON.parse(userCookie);
     const basketCookie = cookies().get('basket')?.value;
     const basket = JSON.parse(basketCookie);
-    const order = {
+    const order = JSON.stringify({
         userId: user._id,
         items: basket.items
-    };
+    });
 
     await fetch(`${process.env.server}/make-order`, {
         method: 'POST',
-        body: JSON.stringify(order),
+        body: order,
         headers: {
             'Content-Type': 'application/json'
         }                     
