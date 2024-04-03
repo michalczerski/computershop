@@ -23,7 +23,7 @@ Most things run out-of-the-box and it doesn't require any configuration.
 It's really **developer-friendly**.
 
 ## Running
-Just type `docker compose up` in console from root directory of project 
+Type `docker compose up` in console from project root directory 
 and then [browse http://localhost:3000/](http://localhost:3000/)
 
 
