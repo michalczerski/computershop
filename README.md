@@ -4,7 +4,7 @@
 
 It's simple computer shop build on modern JS stack - NextJS (React), Mongo, NodeJS.
 Purpose was to see how developing real, commercial project would looks like.
-Because of that ommitted some things like session mechanism etc. 
+Because of that ommitted some things which aren't necessary to have hands-on experience. 
 I think this level of complexity is enough to see real stack advantages and disadvantages.
 
 ## Conclusion
