@@ -1,7 +1,7 @@
 [
   {
     "processor": {
-      "_id": "655516996bc84546c074ad56",
+      "_id": "660d097aae0b01bd3fdb8d77",
       "title": "Core i5-13400F",
       "name": "Intel Core i5-13400F",
       "pricePL": 999,
@@ -9,7 +9,7 @@
       "url": "pr_2023_1_2_8_1_22_776_02.jpg"
     },
     "graphiccard": {
-      "_id": "655516996bc84546c074a974",
+      "_id": "660d097aae0b01bd3fdb8995",
       "title": "GeForce RTX 4060",
       "name": "MSI GeForce RTX 4060 Ventus 2X Black OC 8GB GDDR6",
       "pricePL": 1519,
@@ -17,7 +17,7 @@
       "url": "pr_2023_6_28_13_23_12_64_00.jpg"
     },
     "memory": {
-      "_id": "655516996bc84546c074aa4c",
+      "_id": "660d097aae0b01bd3fdb8a6d",
       "title": "32 GB",
       "name": "GOODRAM 32GB (2x16GB) 3600MHz CL18 IRDM PRO Deep Black",
       "pricePL": 379,
@@ -25,7 +25,7 @@
       "url": "pr_2021_4_27_12_55_1_344_02.jpg"
     },
     "motherboard": {
-      "_id": "655516996bc84546c074abfb",
+      "_id": "660d097aae0b01bd3fdb8c1c",
       "title": "B660-PLUS",
       "name": "ASUS PRIME B660-PLUS DDR4",
       "pricePL": 599,
@@ -33,7 +33,7 @@
       "url": "pr_2022_1_4_14_55_15_877_02.jpg"
     },
     "storage": {
-      "_id": "655516996bc84546c074ada9",
+      "_id": "660d097aae0b01bd3fdb8dca",
       "title": "1 TB",
       "name": "Lexar 1TB M.2 PCIe NVMe NM620",
       "pricePL": 219,
@@ -41,7 +41,7 @@
       "url": "pr_2022_7_11_7_55_50_654_02.jpg"
     },
     "powersupply": {
-      "_id": "655516996bc84546c074aca5",
+      "_id": "660d097aae0b01bd3fdb8cc6",
       "title": "750W",
       "name": "Seasonic G12 750W 80 Plus Gold",
       "pricePL": 449,
@@ -49,7 +49,7 @@
       "url": "pr_2021_10_11_13_29_13_348_02.jpg"
     },
     "case": {
-      "_id": "655516996bc84546c074a393",
+      "_id": "660d097aae0b01bd3fdb83b4",
       "title": "SIGNUM 300",
       "name": "ENDORFY Signum 300 ARGB",
       "pricePL": 359,
@@ -59,7 +59,7 @@
   },
   {
     "processor": {
-      "_id": "655516996bc84546c074ad61",
+      "_id": "660d097aae0b01bd3fdb8d82",
       "title": "Ryzen 5 7600",
       "name": "AMD Ryzen 5 7600",
       "pricePL": 1099,
@@ -67,7 +67,7 @@
       "url": "pr_2023_1_10_11_49_33_369_00.jpg"
     },
     "graphiccard": {
-      "_id": "655516996bc84546c074a9a1",
+      "_id": "660d097aae0b01bd3fdb89c2",
       "title": "Radeon™ RX 7800 XT",
       "name": "Sapphire Radeon RX 7800 XT PURE 16GB GDDR6",
       "pricePL": 2849,
@@ -75,7 +75,7 @@
       "url": "pr_2023_9_27_13_3_15_239_00.jpg"
     },
     "memory": {
-      "_id": "655516996bc84546c074aa51",
+      "_id": "660d097aae0b01bd3fdb8a72",
       "title": "32 GB",
       "name": "Lexar 32GB (2x16GB) 3600Mhz CL18 Thor White",
       "pricePL": 319,
@@ -83,7 +83,7 @@
       "url": "pr_2023_5_29_12_59_8_573_00.jpg"
     },
     "motherboard": {
-      "_id": "655516996bc84546c074ac78",
+      "_id": "660d097aae0b01bd3fdb8c99",
       "title": "B650",
       "name": "ASRock B650 PRO RS",
       "pricePL": 1079,
@@ -91,7 +91,7 @@
       "url": "pr_2022_10_8_14_35_23_665_05.jpg"
     },
     "storage":{
-      "_id": "655516996bc84546c074adc0",
+      "_id": "660d097aae0b01bd3fdb8de1",
       "title": "1TB",
       "name": "WD 1TB M.2 PCIe Gen4 NVMe Blue SN580",
       "pricePL": 279,
@@ -99,7 +99,7 @@
       "url": "pr_2023_7_10_15_54_26_117_00.jpg"
     },
     "powersupply": {
-      "_id": "655516996bc84546c074acf2",
+      "_id": "660d097aae0b01bd3fdb8d13",
       "title": "750W",
       "name": "Lian Li SP750 750W 80 Plus Gold",
       "pricePL": 649,
@@ -107,7 +107,7 @@
       "url": "pr_2022_6_14_11_2_46_739_06.jpg"
     },
     "case": {
-      "_id": "655516996bc84546c074a3a2",
+      "_id": "660d097aae0b01bd3fdb83c3",
       "title": "Genesis 505",
       "name": "Genesis IRID 505 ARGB White V2",
       "pricePL": 369,
